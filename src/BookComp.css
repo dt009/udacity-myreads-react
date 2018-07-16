@@ -1,0 +1,42 @@
+
+/**
+ * @author duantao
+ * @file 样式
+ * @date 2018/7/16
+ */
+
+
+.book-box-item {
+    width: 200px;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 20px;
+    box-shadow: 5px 5px 5px #ccc;
+}
+
+.book-box-item .img-box {
+    width: 100%;
+    position: relative;
+}
+
+.book-box-item .img-box img {
+    width: 128px;
+    height: 168px;
+}
+
+
+.book-box-item .img-box .select-box {
+    position: absolute;
+    top: 145px;
+    left: 140px;
+}
+
+.book-box-item h3 {
+    margin-top: 20px;
+}
+
+.book-box-item .book-author {
+    color: #999999;
+}
+
+

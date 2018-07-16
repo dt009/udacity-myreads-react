@@ -1,28 +1,53 @@
-.App {
-  text-align: center;
+
+.App h1 {
+    height: 60px;
+    background: #f0f;
+    color: #fff;
+    line-height: 60px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.App .books-classify-box {
+    padding-left: 20px;
+    padding-bottom: 20px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.App .books-classify-box h2 {
+    line-height: 40px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
 }
 
-.App-title {
-  font-size: 1.5em;
+.App .books-classify-box .empty-books {
+    height: 400px;
+    background: #eee;
+    text-align: center;
+    line-height: 400px;
+    font-size: 50px;
+    color: #f00;
 }
 
-.App-intro {
-  font-size: large;
+.App .books-classify-box .books-box {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.App .books-classify-box .books-box li {
+    width: 200px;
+    margin-left: 10px;
+}
+
+.App .toggle-search-page {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-size: 28px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background: #2e7d32 url('./icons/add.svg')  no-repeat center center;
+
 }
