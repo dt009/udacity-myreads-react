@@ -46,10 +46,9 @@ import './BookComp.css';
 // }
 
 
-function BookItem(props) {
-    let {book, changeType} = props;
+function BookItem({book, changeType}) {
     
-    let imgSrc = book.imageLinks.smallThumbnail
+    let imgSrc = book.imageLinks && book.imageLinks.smallThumbnail
         ? book.imageLinks.smallThumbnail
         : 'https://books.google.com/googlebooks/images/no_cover_thumb.gif';
     
