@@ -8,11 +8,11 @@ import React, {Component} from 'react';
 
 import './SearchPage.css';
 
-import {search, update} from './BooksAPI';
+import {search} from '../BooksAPI';
 
 import {Link} from 'react-router-dom';
 
-import BookItem from './BookComp';
+import BookItem from '../BooksBoxPage/BookComp';
 
 
 class SearchPage extends Component {
@@ -24,11 +24,6 @@ class SearchPage extends Component {
         }
     }
     
-    handleUpdate = (book, shelf) => {
-        
-        update(book, shelf);
-    }
-    
     
     handleGetInputValue = e => {
         let value = e.target.value.trim();
@@ -37,7 +32,7 @@ class SearchPage extends Component {
             search(value)
                 .then(data => {
                     
-                    console.log('data ==>> ', data);
+                    // console.log('data ==>> ', data);
                     
                     // 这个返回的结果完全是折磨人
                     
@@ -45,6 +40,24 @@ class SearchPage extends Component {
                 
                         this.setState({
                             resultBooks: data
+                        });
+                        
+                        this.setState((prevState, props) => {
+                            let {allBooks} = props;
+                            
+                            let searchBooks = data.map(books => {
+                                
+                                let sameBook = allBooks.find(book => book.id === books.id)
+                                
+                                books.shelf = sameBook ? sameBook.shelf : 'none';
+                                
+                                return books
+                            });
+                            
+                            return {
+                                resultBooks: searchBooks
+                            };
+                            
                         })
                     }
                     else {
@@ -82,7 +95,7 @@ class SearchPage extends Component {
                                         this.state.resultBooks.map((book, key) => (
                                             <li key={key}>
                                                 <BookItem
-                                                    changeClass={this.handleUpdate}
+                                                    changeType={this.props.handleChangeType}
                                                     book={book}
                                                 />
                                             </li>
