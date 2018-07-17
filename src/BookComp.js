@@ -20,12 +20,15 @@ class BookItem extends Component {
         
         let {book} = this.props;
         
+    
+        book.shelf = book.shelf ? book.shelf : 'none';
+        
         return (
             <div className='book-box-item'>
                 <div className='img-box'>
                     <img src={book.imageLinks.smallThumbnail} alt="图片"/>
                     <div className='select-box'>
-                        <SelectItem handleChangeSelectValue={this.handleChangeClass} shelf={book.shelf}/>
+                        <SelectItem handleChangeSelectValue={this.handleChangeClass} shelf={book.shelf }/>
                     </div>
                 </div>
                 <h3 className='book-title'>{book.title}</h3>

@@ -10,6 +10,8 @@ import './SearchPage.css';
 
 import {search, update} from './BooksAPI';
 
+import {Link} from 'react-router-dom';
+
 import BookItem from './BookComp';
 
 
@@ -28,10 +30,6 @@ class SearchPage extends Component {
     }
     
     
-    handleIsHide = () => {
-        this.props.isHide(false)
-    }
-    
     handleGetInputValue = e => {
         let value = e.target.value.trim();
         
@@ -39,7 +37,11 @@ class SearchPage extends Component {
             search(value)
                 .then(data => {
                     
-                    if (data) {
+                    console.log('data ==>> ', data);
+                    
+                    // 这个返回的结果完全是折磨人
+                    
+                    if (data.length && data.length !== 0) {
                 
                         this.setState({
                             resultBooks: data
@@ -64,7 +66,7 @@ class SearchPage extends Component {
         return (
             <div className='search-page'>
                 <div className='input-box'>
-                    <a className="close-search" onClick={() => this.handleIsHide()}>Close</a>
+                    <Link className="close-search" to='/'>Close</Link>
                     <input
                         type="text"
                         placeholder="Search by title or author"
